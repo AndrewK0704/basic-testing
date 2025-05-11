@@ -30,7 +30,6 @@ describe('doStuffByTimeout', () => {
     expect(callback).not.toHaveBeenCalledWith();
     jest.advanceTimersByTime(1000);
     expect(callback).toHaveBeenCalledTimes(1);
-    
   });
 });
 
@@ -58,7 +57,7 @@ describe('doStuffByInterval', () => {
     doStuffByInterval(callback, 1000);
     expect(callback).not.toHaveBeenCalledWith();
     jest.advanceTimersByTime(1000);
-    expect(callback).toHaveBeenCalledTimes(1);    
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 });
 

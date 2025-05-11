@@ -1,11 +1,7 @@
 // Uncomment the code below and write your tests
-import { 
-  getBankAccount,
-  SynchronizationFailedError
- } from './index';
+import { getBankAccount, SynchronizationFailedError } from './index';
 
 describe('BankAccount', () => {
-
   let myBankAccount = getBankAccount(7);
   let anotherBankAccount = getBankAccount(10);
 
@@ -53,7 +49,7 @@ describe('BankAccount', () => {
   test('fetchBalance should return number in case if request did not failed', async () => {
     // Write your test here
     jest.spyOn(myBankAccount, 'fetchBalance').mockResolvedValue(123);
-    expect(typeof await myBankAccount.fetchBalance()).toBe('number');
+    expect(typeof (await myBankAccount.fetchBalance())).toBe('number');
   });
 
   test('should set new balance if fetchBalance returned number', async () => {
@@ -66,6 +62,8 @@ describe('BankAccount', () => {
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     // Write your tests here
     jest.spyOn(myBankAccount, 'fetchBalance').mockResolvedValue(null);
-    await expect(myBankAccount.synchronizeBalance()).rejects.toThrow(SynchronizationFailedError);
+    await expect(myBankAccount.synchronizeBalance()).rejects.toThrow(
+      SynchronizationFailedError,
+    );
   });
 });
